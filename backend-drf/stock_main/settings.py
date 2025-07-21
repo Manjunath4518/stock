@@ -141,12 +141,15 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
       
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
    
 }
 
 
 from datetime import timedelta
+import os
 
 
 SIMPLE_JWT = {
@@ -154,3 +157,6 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
